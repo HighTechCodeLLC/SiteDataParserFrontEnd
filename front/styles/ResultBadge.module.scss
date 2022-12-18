@@ -1,0 +1,165 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: 1250px;
+    width: 80vw;
+    border-radius: 1rem;
+    margin-top: 30px;
+    color: #dedede;
+    font-size: 30px;
+    .wrapper__top {
+        display: flex;
+        padding-left: 38px;
+        flex-direction: row;
+        min-height: 100px;
+        height: fit-content;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #465a65;
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+        gap: 10px;
+        img {
+            margin: 24px 24px auto auto;
+            cursor: pointer;
+            user-select: none;
+        }
+    }
+    .wrapper__bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 5px 38px;
+        background-color: #37474f;
+        white-space: nowrap;
+        font-size: 26px;
+        line-height: 30px;
+        font-weight: 600;
+        border-bottom-left-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+        position: default;
+        min-height: 70px;
+        height: fit-content;
+        .bottom__info {
+            display: flex;
+            gap: 30px;
+            .info__peers,
+            .info__seeds {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+        }
+        .bottom__isFullBTN {
+            padding: 5px 15px;
+            background-color: #7093a7;
+            cursor: pointer;
+            user-select: none;
+            border-radius: 1rem;
+            margin: 10px auto;
+        }
+    }
+    .wrapper__bottom__mobile {
+        .collapse {
+            margin-top: -80%;
+            transition: all 2s;
+            transition-delay: 0.6s;
+            display: none;
+            .bottom__source {
+                opacity: 0;
+                transition: 0.5s;
+            }
+            .bottom__info {
+                opacity: 0;
+                transition: 0.5s;
+            }
+            .bottom__isFullBTN {
+                opacity: 0;
+                transition: 0.5s;
+            }
+        }
+        .bottom {
+            display: flex;
+            animation: expanse ease-in-out 0.6s;
+            flex-direction: column;
+            gap: 8px;
+            justify-items: center;
+            margin-left: auto;
+            margin-right: auto;
+            justify-self: center;
+            min-height: 70px;
+            position: default;
+            .bottom__source {
+                margin: 0 auto;
+                animation: fromFog ease-in-out 0.6s;
+            }
+            .bottom__info {
+                animation: fromFog ease-in-out 0.6s;
+                .info__peers,
+                .info__seeds {
+                    img {
+                        animation: iconAni ease-in-out 0.6s;
+                    }
+                }
+            }
+            .bottom__isFullBTN {
+                margin: 0 auto;
+                animation: iconAni ease-in-out 0.6s;
+                animation: fromFog ease-in-out 0.6s;
+            }
+        }
+
+        @media screen and (max-width: 650px) {
+            & .bottom__info {
+                flex-direction: column;
+                justify-items: center;
+                gap: 8px;
+                .info__peers,
+                .info__seeds {
+                    justify-content: center;
+                }
+                .info__amount {
+                    display: flex;
+                    justify-content: center;
+                }
+            }
+        }
+    }
+}
+
+@keyframes expanse {
+    from {
+        margin-top: -20%;
+    }
+    to {
+        margin-top: 0;
+    }
+}
+@keyframes fromFog {
+    0% {
+        background-color: transparent;
+        color: transparent;
+    }
+    90% {
+        background-color: transparent;
+        color: transparent;
+    }
+    100% {
+        color: default;
+    }
+}
+@keyframes iconAni {
+    0% {
+        display: none;
+        height: 0;
+        width: 0;
+    }
+    90% {
+        display: none;
+        height: 0;
+        width: 0;
+    }
+    100% {
+        display: default;
+    }
+}
